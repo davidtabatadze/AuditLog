@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>David Tabatadze</Authors>
+    <Description>Audit logging functionality for .net core web application</Description>
+    <Copyright>Copyright (c) 2019 David Tabatadze</Copyright>
+    <PackageLicenseUrl>https://github.com/davidtabatadze/AuditLog/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/davidtabatadze/AuditLog</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/davidtabatadze/AuditLog</RepositoryUrl>
+    <RepositoryType>C#</RepositoryType>
+    <PackageTags>.net core elastic audit logget david tabatadze optio optioai optio.ai</PackageTags>
+    <PackageReleaseNotes>AuditLogger</PackageReleaseNotes>
+    <NeutralLanguage>ka-GE</NeutralLanguage>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CoreKit.Extension" Version="1.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+    <PackageReference Include="NEST" Version="7.4.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+</Project>
