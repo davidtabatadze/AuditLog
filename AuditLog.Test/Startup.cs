@@ -43,9 +43,9 @@ namespace AuditLog.Test
             services.Configure<Elastic.AuditLoggerConfiguration>(econfig);
             services.AddScoped<Elastic.AuditLogger>();
             // მონგოს ნაწილი
-            //var mconfig = Configuration.GetSection("Mongo");
-            //services.Configure<Mongo.AuditLoggerConfiguration>(mconfig);
-            //services.AddScoped<Mongo.AuditLogger>();
+            var mconfig = Configuration.GetSection("Mongo");
+            services.Configure<Mongo.AuditLoggerConfiguration>(mconfig);
+            services.AddScoped<Mongo.AuditLogger>();
             // ვებ mvc ნაწილი
             services.AddMvc();
             // swager ნაწილი
