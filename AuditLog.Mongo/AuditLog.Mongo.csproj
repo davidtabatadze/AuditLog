@@ -1,7 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>David Tabatadze</Authors>
     <Description>Audit logging functionality for .net core web application</Description>
@@ -10,9 +10,10 @@
     <PackageProjectUrl>https://github.com/davidtabatadze/AuditLog</PackageProjectUrl>
     <RepositoryUrl>https://github.com/davidtabatadze/AuditLog</RepositoryUrl>
     <RepositoryType>C#</RepositoryType>
-    <PackageTags>.net core mongo mongodb audit logget david tabatadze optio optioai optio.ai</PackageTags>
+    <PackageTags>.net core mongo mongodb audit logger david tabatadze optio optioai optio.ai</PackageTags>
     <PackageReleaseNotes>AuditLogger</PackageReleaseNotes>
     <NeutralLanguage>ka-GE</NeutralLanguage>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>

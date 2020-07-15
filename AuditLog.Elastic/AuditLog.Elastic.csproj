@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -9,10 +9,11 @@
     <PackageProjectUrl>https://github.com/davidtabatadze/AuditLog</PackageProjectUrl>
     <RepositoryUrl>https://github.com/davidtabatadze/AuditLog</RepositoryUrl>
     <RepositoryType>C#</RepositoryType>
-    <PackageTags>.net core elastic audit logget david tabatadze optio optioai optio.ai</PackageTags>
+    <PackageTags>.net core elastic audit logger david tabatadze optio optioai optio.ai</PackageTags>
     <PackageReleaseNotes>AuditLogger</PackageReleaseNotes>
     <NeutralLanguage>ka-GE</NeutralLanguage>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
