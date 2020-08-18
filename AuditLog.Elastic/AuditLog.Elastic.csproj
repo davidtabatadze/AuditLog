@@ -13,14 +13,13 @@
     <PackageReleaseNotes>AuditLogger</PackageReleaseNotes>
     <NeutralLanguage>ka-GE</NeutralLanguage>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CoreKit.Extension" Version="1.0.5" />
+    <PackageReference Include="CoreKit.Extension" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
-    <PackageReference Include="NEST" Version="7.4.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="NEST" Version="7.8.2" />
   </ItemGroup>
 
 </Project>
