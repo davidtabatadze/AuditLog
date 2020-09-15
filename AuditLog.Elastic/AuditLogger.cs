@@ -3,6 +3,7 @@ using System;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using CoreKit.Sync;
 using CoreKit.Extension.String;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
@@ -124,10 +125,8 @@ namespace AuditLog.Elastic
         /// <param name="user">Application user</param>
         public void Log(string page, string description, string status, object raw = null, object response = null, long user = 0)
         {
-            // Generating log record
-            var log = GenerateLog(page, description, status, raw, response, user);
-            // Saving log record to mongo
-            var result = Context.IndexMany(new List<Log> { log }, Configuration.Index);
+            // Do log
+            SyncKit.Run(() => LogAsync(page, description, status, raw, response, user));
         }
 
         /// <summary>

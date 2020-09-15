@@ -3,6 +3,8 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using MongoDB.Driver.Wrapper;
+using MongoDB.Driver.Wrapper.CRUD;
+using CoreKit.Sync;
 using CoreKit.Extension.String;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
@@ -43,7 +45,13 @@ namespace AuditLog.Mongo
             // ...
             Http = http;
             Configuration = configuration;
-            Context = new MongoContext(Configuration.MongoConfiguration);
+            Context = new MongoContext(
+                Configuration.MongoConfiguration,
+                new Dictionary<Type, string>
+                {
+                    { typeof(Log), Configuration.Collection }
+                }
+            );
         }
 
         /// <summary>
@@ -124,10 +132,8 @@ namespace AuditLog.Mongo
         /// <param name="user">Application user</param>
         public void Log(string page, string description, string status, object raw = null, object response = null, long user = 0)
         {
-            // Generating log record
-            var log = GenerateLog(page, description, status, raw, response, user);
-            // Saving log record to mongo
-            Context.Table<Log>().SaveEntityLong(log);
+            // Do log
+            SyncKit.Run(() => LogAsync(page, description, status, raw, response, user));
         }
 
         /// <summary>
@@ -145,7 +151,7 @@ namespace AuditLog.Mongo
             // Generating log record
             var log = GenerateLog(page, description, status, raw, response, user);
             // Saving log record to mongo
-            await Context.Table<Log>().SaveEntityLongAsync(log);
+            await Context.SaveAsync(log);
         }
 
     }

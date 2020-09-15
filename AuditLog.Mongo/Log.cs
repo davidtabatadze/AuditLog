@@ -9,13 +9,8 @@ namespace AuditLog.Mongo
     /// <summary>
     /// Represents actual log record
     /// </summary>
-    internal class Log : MongoTableEntity<long>
+    internal class Log : MongoEntity<long>
     {
-
-        /// <summary>
-        /// Mongo table name
-        /// </summary>
-        public override string Table => "Logs";
 
         /// <summary>
         /// Event date and time

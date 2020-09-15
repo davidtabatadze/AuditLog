@@ -16,6 +16,11 @@ namespace AuditLog.Mongo
         public MongoConfiguration MongoConfiguration { get; set; }
 
         /// <summary>
+        /// Mongo log collection
+        /// </summary>
+        public string Collection { get; set; }
+
+        /// <summary>
         /// Property names to be ignored in logs
         /// </summary>
         public List<string> IgnoreLogProperties { get; set; }

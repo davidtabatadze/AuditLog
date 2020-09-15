@@ -5,20 +5,20 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>David Tabatadze</Authors>
     <Description>Audit logging functionality for .net core web application</Description>
-    <Copyright>Copyright (c) 2019 David Tabatadze</Copyright>
+    <Copyright>Copyright (c) 2020 David Tabatadze</Copyright>
     <PackageLicenseUrl>https://github.com/davidtabatadze/AuditLog/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/davidtabatadze/AuditLog</PackageProjectUrl>
     <RepositoryUrl>https://github.com/davidtabatadze/AuditLog</RepositoryUrl>
     <RepositoryType>C#</RepositoryType>
-    <PackageTags>.net core mongo mongodb audit logger david tabatadze optio optioai optio.ai</PackageTags>
+    <PackageTags>.net core mongo mongodb audit logger david tabatadze</PackageTags>
     <PackageReleaseNotes>AuditLogger</PackageReleaseNotes>
     <NeutralLanguage>ka-GE</NeutralLanguage>
-    <Version>1.0.2</Version>
+    <Version>1.0.5</Version>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
-    <PackageReference Include="MongoDB.Driver.Wrapper" Version="4.0.3" />
+    <PackageReference Include="MongoDB.Driver.Wrapper" Version="5.0.0" />
   </ItemGroup>
 
 </Project>
