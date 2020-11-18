@@ -144,7 +144,7 @@ namespace AuditLog.Elastic
             // Generating log record
             var log = GenerateLog(page, description, status, raw, response, user);
             // Saving log record to mongo
-            var result = await Context.IndexManyAsync(new List<Log> { log }, Configuration.Index);
+            await Context.IndexManyAsync(new List<Log> { log }, Configuration.Index);
         }
 
     }

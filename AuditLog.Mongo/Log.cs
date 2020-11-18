@@ -1,6 +1,5 @@
 ﻿using System;
 using MongoDB.Driver.Wrapper;
-using MongoDB.Driver.Wrapper.Serializer;
 using MongoDB.Bson.Serialization.Attributes;
 
 namespace AuditLog.Mongo

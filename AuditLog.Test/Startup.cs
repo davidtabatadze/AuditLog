@@ -1,7 +1,7 @@
-﻿using Swashbuckle.AspNetCore.Swagger;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -47,11 +47,11 @@ namespace AuditLog.Test
             services.Configure<Mongo.AuditLoggerConfiguration>(mconfig);
             services.AddScoped<Mongo.AuditLogger>();
             // ვებ mvc ნაწილი
-            services.AddMvc();
+            services.AddMvc(options => options.EnableEndpointRouting = false);
             // swager ნაწილი
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc(Configuration.GetValue<string>("Config:Version"), new Info
+                c.SwaggerDoc(Configuration.GetValue<string>("Config:Version"), new Microsoft.OpenApi.Models.OpenApiInfo
                 {
                     Title = Configuration.GetValue<string>("Config:Name"),
                     Version = Configuration.GetValue<string>("Config:Version")
@@ -64,7 +64,7 @@ namespace AuditLog.Test
         /// </summary>
         /// <param name="app">აპლიკაცია</param>
         /// <param name="env">ჰოსთინგი</param>
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             // დეველოპმენტ-კონფიგურაცია
             if (env.IsDevelopment())
@@ -72,10 +72,8 @@ namespace AuditLog.Test
                 app.UseDeveloperExceptionPage();
             }
             // ვებ mvc ნაწილი
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute("default", "{controller=default}/{action=index}");
-            });
+            app.UseRouting();
+            app.UseMvc();
             // swager ნაწილი
             app.UseSwagger();
             app.UseSwaggerUI(c =>
@@ -89,33 +87,4 @@ namespace AuditLog.Test
 
     }
 
-
-
-    //class Startup
-    //{
-    //    public Startup(IConfiguration configuration)
-    //    {
-    //        Configuration = configuration;
-    //    }
-    //    public IConfiguration Configuration { get; }
-    //    public void ConfigureServices(IServiceCollection services)
-    //    {
-    //        services.AddOptions();
-    //        var config = Configuration.GetSection("Config");
-    //        services.Configure<AuditLoggerConfiguration>(config);
-    //        services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-    //        services.AddMvc();
-    //    }
-    //    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-    //    {
-    //        if (env.IsDevelopment())
-    //        {
-    //            app.UseDeveloperExceptionPage();
-    //        }
-    //        app.UseMvc(routes =>
-    //        {
-    //            routes.MapRoute("default", "{controller=default}/{action=index}");
-    //        });
-    //    }
-    //}
 }

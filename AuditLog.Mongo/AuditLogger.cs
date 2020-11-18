@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using MongoDB.Driver.Wrapper;
-using MongoDB.Driver.Wrapper.CRUD;
 using CoreKit.Sync;
 using CoreKit.Extension.String;
 using Microsoft.AspNetCore.Http;
@@ -45,7 +44,7 @@ namespace AuditLog.Mongo
             // ...
             Http = http;
             Configuration = configuration;
-            Context = new MongoContext(
+            Context = new MongoContextAsync(
                 Configuration.MongoConfiguration,
                 new Dictionary<Type, string>
                 {
@@ -67,7 +66,7 @@ namespace AuditLog.Mongo
         /// <summary>
         /// Mongo context object
         /// </summary>
-        public MongoContext Context { get; set; }
+        public MongoContextAsync Context { get; set; }
 
         /// <summary>
         /// Gets serialized json string for object
@@ -151,7 +150,7 @@ namespace AuditLog.Mongo
             // Generating log record
             var log = GenerateLog(page, description, status, raw, response, user);
             // Saving log record to mongo
-            await Context.SaveAsync(log);
+            await Context.Insert(log);
         }
 
     }
