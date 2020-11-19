@@ -6,19 +6,19 @@
     <Authors>David Tabatadze</Authors>
     <Description>Audit logging functionality for .net core web application</Description>
     <Copyright>Copyright (c) 2020 David Tabatadze</Copyright>
-    <PackageLicenseUrl>https://github.com/davidtabatadze/AuditLog/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageLicenseUrl></PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/davidtabatadze/AuditLog</PackageProjectUrl>
     <RepositoryUrl>https://github.com/davidtabatadze/AuditLog</RepositoryUrl>
     <RepositoryType>C#</RepositoryType>
     <PackageTags>.net core mongo mongodb audit logger david tabatadze</PackageTags>
     <PackageReleaseNotes>AuditLogger</PackageReleaseNotes>
     <NeutralLanguage>ka-GE</NeutralLanguage>
-    <Version>2.0.0</Version>
+    <Version>2.0.2</Version>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
-    <PackageReference Include="MongoDB.Driver.Wrapper" Version="6.0.1" />
+    <PackageReference Include="MongoDB.Driver.Wrapper" Version="6.0.6" />
   </ItemGroup>
 
 </Project>
